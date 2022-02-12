@@ -1,3 +1,11 @@
+<!--
+ * @Author: zouyaoji@https://github.com/zouyaoji
+ * @Date: 2021-07-05 11:03:29
+ * @LastEditTime: 2022-02-13 00:15:24
+ * @LastEditors: zouyaoji
+ * @Description:
+ * @FilePath: \vue-cesium-starter\src\views\Home.vue
+-->
 <template>
   <div class="home viewer">
     <vc-viewer @ready="onViewerReady">
@@ -17,9 +25,10 @@
         ></vc-graphics-rectangle>
       </vc-entity>
       <vc-layer-imagery>
-        <vc-provider-imagery-osm></vc-provider-imagery-osm>
+        <vc-imagery-provider-osm></vc-imagery-provider-osm>
       </vc-layer-imagery>
       <vc-navigation></vc-navigation>
+      <vc-measurements :offset="[0, 40]" :mainFabOpts="mainFabOpts"></vc-measurements>
     </vc-viewer>
   </div>
 </template>
@@ -41,6 +50,9 @@ export default {
       billboard: {
         image: 'https://zouyaoji.top/vue-cesium/favicon.png',
         scale: 0.5
+      },
+      mainFabOpts: {
+        direction: 'right'
       }
     }
   },
